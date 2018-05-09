@@ -57,7 +57,9 @@
     <Compile Include="CSharpColumnIndent.cs" />
     <Compile Include="CSharpColumnIndenter.cs" />
     <Compile Include="CSharpColumnIndentPackage.cs" />
+    <Compile Include="LCS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SyntaxTokenComparer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

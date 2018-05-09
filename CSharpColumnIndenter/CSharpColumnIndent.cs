@@ -104,8 +104,7 @@ namespace CSharpColumnIndenter
             }
             var selectedText = textDocument.Selection.Text;
             var editPoint = textDocument.CreateEditPoint(textDocument.Selection.TopPoint);
-            editPoint.Delete(selectedText.Length);
-            editPoint.Insert(columnIndenter.Apply(selectedText));
+            editPoint.ReplaceText(selectedText.Length - 1, columnIndenter.Apply(selectedText),0);
         }
 
         private void ShowMessage(string title, string message)
