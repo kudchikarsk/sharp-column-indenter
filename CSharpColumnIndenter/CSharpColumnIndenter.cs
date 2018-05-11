@@ -15,6 +15,7 @@ namespace CSharpColumnIndenter
         {
             var tokenByLine = GetTokenByLine(text);
             var commonTokens = GetCommonTokens(tokenByLine);
+            if (!commonTokens.Any()) throw new Exception("Failed to find a pattern for column indention! if you think this is a bug please report here https://github.com/kudchikarsk/csharp-column-indenter/issues");
             var columnizedText = GetColumnizedString(tokenByLine,commonTokens,text);
             CheckCode(columnizedText, text);
             return columnizedText;
@@ -32,7 +33,7 @@ namespace CSharpColumnIndenter
             var modifiedCode = GetTokens(columnizedText).Select(t=>t.Text).ToList();
             var originalCode = GetTokens(text).Select(t=>t.Text).ToList();
             var isNotEqual = modifiedCode.Except(originalCode).ToList().Any() || originalCode.Except(modifiedCode).ToList().Any() || originalCode.Count!=modifiedCode.Count;
-            if (isNotEqual) throw new Exception("Visual Studio Extension - CSharp Column Indenter is trying to change the selected code, its a bug please report here.");
+            if (isNotEqual) throw new Exception("Visual Studio Extension - CSharp Column Indenter is trying to change the selected code, its a bug please report here https://github.com/kudchikarsk/csharp-column-indenter/issues.");
         }
 
         private SyntaxToken[] GetCommonTokens(SyntaxToken[][] tokenByLine)

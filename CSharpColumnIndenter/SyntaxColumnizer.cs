@@ -109,7 +109,7 @@ namespace CSharpColumnIndenter
             if (!string.IsNullOrEmpty(spaceAfterLine))
                 spaceAfterLine = spaceAfterLine.Remove(0, 1);
 
-            return $"{spaceBeforeLine}{string.Join("\r\n"+indention,lineContent)}{spaceAfterLine}";
+            return $"{spaceBeforeLine}{string.Join("\r\n"+indention,lineContent)}{spaceAfterLine}\n";
         }
 
         private string Pad(string text, int maxLength)

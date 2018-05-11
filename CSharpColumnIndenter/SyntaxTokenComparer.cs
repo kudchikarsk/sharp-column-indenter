@@ -7,12 +7,12 @@ namespace CSharpColumnIndenter
     {
         public bool Equals(SyntaxToken x, SyntaxToken y)
         {
-            return x.RawKind.Equals(y.RawKind);
+            return x.Text.Equals(y.Text);
         }
 
         public int GetHashCode(SyntaxToken obj)
         {
-            return obj.RawKind.GetHashCode();
+            return obj.Text.GetHashCode();
         }
     }
 }
