@@ -3,7 +3,7 @@ using Microsoft.CodeAnalysis;
 
 namespace CSharpColumnIndenter
 {
-    public class SyntaxTokenRawKindComparer : IEqualityComparer<SyntaxToken>
+    public class SyntaxTokenComparer : IEqualityComparer<SyntaxToken>
     {
         public bool Equals(SyntaxToken x, SyntaxToken y)
         {

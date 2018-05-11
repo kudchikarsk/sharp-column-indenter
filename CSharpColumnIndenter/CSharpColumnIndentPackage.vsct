@@ -56,7 +56,7 @@
         <Parent guid="guidCSharpColumnIndentPackageCmdSet" id="MyMenuGroup" />
         <Icon guid="guidImages" id="bmpPic1" />
         <Strings>
-          <ButtonText>Invoke CSharpColumnIndent</ButtonText>
+          <ButtonText>Apply Column Indention</ButtonText>
         </Strings>
       </Button>
     </Buttons>

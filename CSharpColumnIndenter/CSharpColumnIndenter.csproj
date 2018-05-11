@@ -59,6 +59,9 @@
     <Compile Include="CSharpColumnIndentPackage.cs" />
     <Compile Include="LCS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SyntaxColumnizer.cs" />
+    <Compile Include="SyntaxTokenColumnManager.cs" />
+    <Compile Include="SyntaxTokenColumn.cs" />
     <Compile Include="SyntaxTokenComparer.cs" />
   </ItemGroup>
   <ItemGroup>
