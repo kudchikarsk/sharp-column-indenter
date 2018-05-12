@@ -111,7 +111,7 @@ namespace SharpColumnIndenter.ColumnIndenter
             if (!string.IsNullOrEmpty(spaceAfterLine))
                 spaceAfterLine = spaceAfterLine.Remove(0, 1);
 
-            return $"{spaceBeforeLine}{string.Join("\r\n"+indention,lineContent)}{spaceAfterLine}\n";
+            return $"{spaceBeforeLine}{string.Join("\r\n"+indention,lineContent)}{spaceAfterLine}";
         }
 
         private string Pad(string text, int maxLength)

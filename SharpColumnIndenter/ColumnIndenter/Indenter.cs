@@ -21,6 +21,7 @@ namespace SharpColumnIndenter.ColumnIndenter
         public string Apply(string text)
         {
             var tokenByLine = GetTokenByLine(text);
+            if (tokenByLine.Count() < 2) throw new Exception("Failed to find a pattern for column indention! if you think this is a bug please report here https://github.com/kudchikarsk/csharp-column-indenter/issues");
             var commonTokens = GetCommonTokens(tokenByLine);
             if (!commonTokens.Any()) throw new Exception("Failed to find a pattern for column indention! if you think this is a bug please report here https://github.com/kudchikarsk/csharp-column-indenter/issues");
             var columnizedText = GetColumnizedString(tokenByLine,commonTokens,text);
@@ -55,7 +56,7 @@ namespace SharpColumnIndenter.ColumnIndenter
 
         private IToken [][] GetTokenByLine(string text)
         {
-            var lines = text.Split('\n').ToList();
+            var lines = Regex.Split(text,@"(\r\n|\n)").ToList();
             lines.RemoveAll(s => string.IsNullOrWhiteSpace(s));
             var tokensByLine = new IToken[lines.Count][];
             for (int i = 0; i < lines.Count; i++)

@@ -93,9 +93,14 @@ namespace SharpColumnIndenter
         /// <param name="e">Event args.</param>
         private void MenuItemCallback(object sender, EventArgs e)
         {
-            Indenter columnIndenter;
             DTE dte = (DTE)ServiceProvider.GetService(typeof(DTE));
-            string fileExtension = Path.GetExtension(dte.ActiveDocument.FullName).ToLower();
+            if (dte.ActiveDocument is null)
+            {
+                throw new Exception("Oops! please select some text in active document.");
+            }
+
+            Indenter columnIndenter;            
+            string fileExtension = Path.GetExtension(dte.ActiveDocument.FullName).ToLower().Remove(0, 1);
             switch (fileExtension)
             {
                 case "cs":
@@ -106,32 +111,15 @@ namespace SharpColumnIndenter
                     columnIndenter = new Indenter(new BaseLanguage());
                     break;
             }
-            if (dte.ActiveDocument is null)
-            {
-                ShowMessage("Invalid option!", "Please select some text in active document.");
-                return;
-            }
+            
             var textDocument = dte.ActiveDocument.Object() as TextDocument;
             if (textDocument is null || textDocument.Selection is null || textDocument.Selection.Text is null)
             {
-                ShowMessage("Invalid option!", "Please select some text in active document.");
-                return;
+                throw new Exception("Oops! please select some text in active document.");
             }
             var selectedText = textDocument.Selection.Text;
             var editPoint = textDocument.CreateEditPoint(textDocument.Selection.TopPoint);
-            editPoint.ReplaceText(selectedText.Length - 1, columnIndenter.Apply(selectedText),0);
-        }
-
-        private void ShowMessage(string title, string message)
-        {
-            // Show a message box to prove we were here
-            VsShellUtilities.ShowMessageBox(
-                this.ServiceProvider,
-                message,
-                title,
-                OLEMSGICON.OLEMSGICON_INFO,
-                OLEMSGBUTTON.OLEMSGBUTTON_OK,
-                OLEMSGDEFBUTTON.OLEMSGDEFBUTTON_FIRST);
+            editPoint.ReplaceText(textDocument.Selection.BottomPoint, columnIndenter.Apply(selectedText),0);
         }
     }
 }
