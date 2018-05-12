@@ -37,7 +37,7 @@ namespace SharpColumnIndenter
     public sealed class SharpColumnIndentPackage : Package
     {
         /// <summary>
-        /// CSharpColumnIndentPackage GUID string.
+        /// SharpColumnIndentPackage GUID string.
         /// </summary>
         public const string PackageGuidString = "c623e3f2-f10d-4e1f-994a-4fcf8c3e00fe";
 

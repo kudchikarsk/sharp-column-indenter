@@ -93,8 +93,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="index.html" />
-    <Content Include="Resources\CSharpColumnIndent.png" />
-    <Content Include="Resources\CSharpColumnIndentPackage.ico" />
+    <Content Include="Resources\SharpColumnIndent.png" />
+    <Content Include="Resources\SharpColumnIndentPackage.ico" />
     <Content Include="stylesheet.css" />
   </ItemGroup>
   <ItemGroup>

@@ -96,7 +96,8 @@ namespace SharpColumnIndenter
             DTE dte = (DTE)ServiceProvider.GetService(typeof(DTE));
             if (dte.ActiveDocument is null)
             {
-                throw new Exception("Oops! please select some text in active document.");
+                ShowMessage("Oops!","Please select some text in active document.");
+                return;
             }
 
             Indenter columnIndenter;            
@@ -113,13 +114,26 @@ namespace SharpColumnIndenter
             }
             
             var textDocument = dte.ActiveDocument.Object() as TextDocument;
-            if (textDocument is null || textDocument.Selection is null || textDocument.Selection.Text is null)
+            if (textDocument is null || textDocument.Selection is null || string.IsNullOrWhiteSpace(textDocument.Selection.Text))
             {
-                throw new Exception("Oops! please select some text in active document.");
+                ShowMessage("Oops!", "Please select some text in active document.");
+                return;
             }
             var selectedText = textDocument.Selection.Text;
             var editPoint = textDocument.CreateEditPoint(textDocument.Selection.TopPoint);
             editPoint.ReplaceText(textDocument.Selection.BottomPoint, columnIndenter.Apply(selectedText),0);
+        }
+
+        private void ShowMessage(string title, string message)
+        {
+            // Show a message box to prove we were here
+            VsShellUtilities.ShowMessageBox(
+                this.ServiceProvider,
+                message,
+                title,
+                OLEMSGICON.OLEMSGICON_INFO,
+                OLEMSGBUTTON.OLEMSGBUTTON_OK,
+                OLEMSGDEFBUTTON.OLEMSGDEFBUTTON_FIRST);
         }
     }
 }
