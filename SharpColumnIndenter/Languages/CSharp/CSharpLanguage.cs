@@ -19,8 +19,9 @@ namespace SharpColumnIndenter.Languages.CSharp
 
         public IToken[] GetTokens(string text)
         {
-            var syntaxStatement = SyntaxFactory.ParseStatement(text);
-            return syntaxStatement.DescendantTokens().Select(t => new CSharpToken(t)).ToArray();
+            var syntaxTokens = SyntaxFactory.ParseTokens(text);
+            var tokens = syntaxTokens.Select(t => new CSharpToken(t)).ToArray();
+            return tokens;
         }
     }
 }

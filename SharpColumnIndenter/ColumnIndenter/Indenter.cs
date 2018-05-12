@@ -45,7 +45,7 @@ namespace SharpColumnIndenter.ColumnIndenter
 
         private IToken [] GetCommonTokens(IToken [][] tokenByLine)
         {
-            var lcs = new LCS<IToken>(new TokenComparer(), tokenByLine);
+            var lcs = new LCS<IToken>(_language.Comparer, tokenByLine);
             lcs.Execute();
             var result = lcs.Result.ToList();
             //remove EndOfLineToken

@@ -2,7 +2,7 @@
 
 namespace SharpColumnIndenter.ColumnIndenter
 {
-    internal class BaseToken : IToken
+    internal class BaseToken : Token
     {
         private string _text;
 
@@ -11,6 +11,6 @@ namespace SharpColumnIndenter.ColumnIndenter
             _text = text;
         }
 
-        public string Text => _text;
+        public override string Text => _text;
     }
 }

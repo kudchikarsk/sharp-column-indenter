@@ -1,4 +1,5 @@
 ﻿using Microsoft.CodeAnalysis;
+using SharpColumnIndenter.ColumnIndenter;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SharpColumnIndenter.Languages.CSharp
 {
-    class CSharpToken : IToken
+    class CSharpToken : Token
     {
         private SyntaxToken _token;
 
@@ -16,7 +17,8 @@ namespace SharpColumnIndenter.Languages.CSharp
             _token = token;
         }
 
-        public string Text => _token.Text;
+        public override string Text => _token.Text;
+
         public int RawKind => _token.RawKind;
     }
 }

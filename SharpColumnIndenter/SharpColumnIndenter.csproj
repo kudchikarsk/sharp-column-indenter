@@ -55,6 +55,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="ColumnIndenter\BaseToken.cs" />
+    <Compile Include="ColumnIndenter\Token.cs" />
     <Compile Include="SharpColumnIndent.cs" />
     <Compile Include="ColumnIndenter\Indenter.cs" />
     <Compile Include="SharpColumnIndentPackage.cs" />
@@ -67,7 +68,6 @@
     <Compile Include="ColumnIndenter\TokenColumnizer.cs" />
     <Compile Include="ColumnIndenter\TokenRow.cs" />
     <Compile Include="ColumnIndenter\TokenColumn.cs" />
-    <Compile Include="ColumnIndenter\TokenComparer.cs" />
     <Compile Include="Languages\IToken.cs" />
   </ItemGroup>
   <ItemGroup>
