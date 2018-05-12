@@ -1,3 +1,3 @@
-## CSharp Column Indenter - Visual Studio Extension
+## Sharp Column Indenter - Visual Studio Extension
 
 ### Inspired from [Smart Column Indenter](https://github.com/lmcarreiro/smart-column-indenter)
