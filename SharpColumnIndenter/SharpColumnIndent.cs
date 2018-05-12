@@ -5,8 +5,10 @@ using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
 using EnvDTE;
 using EnvDTE80;
-using SharpColumnIndenter.Languages.CSharp;
+using System.IO;
 using SharpColumnIndenter.ColumnIndenter;
+using SharpColumnIndenter.Languages.CSharp;
+using SharpColumnIndenter.Languages.Base;
 
 namespace SharpColumnIndenter
 {
@@ -90,9 +92,20 @@ namespace SharpColumnIndenter
         /// <param name="sender">Event sender.</param>
         /// <param name="e">Event args.</param>
         private void MenuItemCallback(object sender, EventArgs e)
-        {            
-            var columnIndenter = new Indenter(new CSharpLanguage());
+        {
+            Indenter columnIndenter;
             DTE dte = (DTE)ServiceProvider.GetService(typeof(DTE));
+            string fileExtension = Path.GetExtension(dte.ActiveDocument.FullName).ToLower();
+            switch (fileExtension)
+            {
+                case "cs":
+                    columnIndenter= new Indenter(new CSharpLanguage());
+                    break;
+
+                default:
+                    columnIndenter = new Indenter(new BaseLanguage());
+                    break;
+            }
             if (dte.ActiveDocument is null)
             {
                 ShowMessage("Invalid option!", "Please select some text in active document.");

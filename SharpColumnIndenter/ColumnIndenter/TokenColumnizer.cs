@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
-using SharpColumnIndenter.Languages;
 using Microsoft.CodeAnalysis;
+using SharpColumnIndenter.Languages;
+using SharpColumnIndenter.Languages.Base;
 
 namespace SharpColumnIndenter.ColumnIndenter
 {

@@ -1,6 +1,6 @@
-﻿using SharpColumnIndenter.Languages;
+﻿using SharpColumnIndenter.ColumnIndenter;
 
-namespace SharpColumnIndenter.ColumnIndenter
+namespace SharpColumnIndenter.Languages.Base
 {
     internal class BaseToken : Token
     {

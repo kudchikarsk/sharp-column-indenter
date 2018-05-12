@@ -54,7 +54,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="ColumnIndenter\BaseToken.cs" />
+    <Compile Include="Languages\Base\BaseLanguage.cs" />
+    <Compile Include="Languages\Base\BaseToken.cs" />
+    <Compile Include="Languages\Base\BaseTokenComparator.cs" />
     <Compile Include="ColumnIndenter\Token.cs" />
     <Compile Include="SharpColumnIndent.cs" />
     <Compile Include="ColumnIndenter\Indenter.cs" />
