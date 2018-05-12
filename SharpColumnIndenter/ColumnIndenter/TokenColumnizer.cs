@@ -85,33 +85,34 @@ namespace SharpColumnIndenter.ColumnIndenter
 
         public override string ToString()
         {
-            var lineContent = new string[_tokensByLine.Count()];
+            var rowText = new string[_tokensByLine.Count()];
 
             for (int i = 0; i < _tokenRows.First().Columns.Count(); i++)
             {                
-                var linesColumnText = _tokenRows.Select(l => string.Join(" ", l.GetColumn(i).Tokens.Select(t => t.Text))).ToArray();
-                var maxLength = linesColumnText.Select(t=>t.Length).Max();
+                var columnTextByRow = _tokenRows.Select(l => string.Join(" ", l.GetColumn(i).Tokens.Select(t => t.Text)).Trim()).ToArray();
+                var maxColumnTextLength = columnTextByRow.Select(t=>t.Length).Max();
+                if (columnTextByRow.All(string.IsNullOrWhiteSpace)) continue;
                 for (int j = 0; j < _tokensByLine.Count(); j++)
                 {
-                    lineContent[j] += Pad(linesColumnText[j], maxLength);
+                    rowText[j] += Pad(columnTextByRow[j], maxColumnTextLength);
                 }
             }
 
             var lines = Regex.Split(_actualText.Trim(), @"(\r\n|\r|\n)").ToList(); ;
             lines.RemoveAll(l => string.IsNullOrWhiteSpace(l));
-            var indention = Regex.Match(lines[1], @"^(\s*)\w").Value;
+            var indention = Regex.Match(lines[1], @"^(\s*)\S").Value;
             if (!string.IsNullOrEmpty(indention))
                 indention = indention.Remove(indention.Count() - 1, 1);
 
-            var spaceBeforeLine = Regex.Match(_actualText, @"^(\s*)\w").Value;
+            var spaceBeforeLine = Regex.Match(_actualText, @"^(\s*)\S").Value;
             if (!string.IsNullOrEmpty(spaceBeforeLine))
                 spaceBeforeLine = spaceBeforeLine.Remove(spaceBeforeLine.Count() - 1, 1);
 
-            var spaceAfterLine = Regex.Match(_actualText, @"\w(\s*)$").Value;
+            var spaceAfterLine = Regex.Match(_actualText, @"\S(\s*)$").Value;
             if (!string.IsNullOrEmpty(spaceAfterLine))
                 spaceAfterLine = spaceAfterLine.Remove(0, 1);
 
-            return $"{spaceBeforeLine}{string.Join("\r\n"+indention,lineContent)}{spaceAfterLine}";
+            return $"{spaceBeforeLine}{string.Join("\r\n"+indention,rowText)}{spaceAfterLine}";
         }
 
         private string Pad(string text, int maxLength)
