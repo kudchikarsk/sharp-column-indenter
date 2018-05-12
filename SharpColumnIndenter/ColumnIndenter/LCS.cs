@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SharpColumnIndenter
+namespace SharpColumnIndenter.ColumnIndenter
 {
     class LCS<T>
     {
