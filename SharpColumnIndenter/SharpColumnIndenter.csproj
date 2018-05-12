@@ -23,8 +23,8 @@
     <ProjectGuid>{EE28EC7B-2FB8-4886-BC55-5B69F5FA5EA6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CSharpColumnIndenter</RootNamespace>
-    <AssemblyName>CSharpColumnIndenter</AssemblyName>
+    <RootNamespace>SharpColumnIndenter</RootNamespace>
+    <AssemblyName>SharpColumnIndenter</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <GeneratePkgDefFile>true</GeneratePkgDefFile>
     <IncludeAssemblyInVSIXContainer>true</IncludeAssemblyInVSIXContainer>
@@ -54,21 +54,27 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="CSharpColumnIndent.cs" />
-    <Compile Include="CSharpColumnIndenter.cs" />
-    <Compile Include="CSharpColumnIndentPackage.cs" />
+    <Compile Include="ColumnIndenter\BaseToken.cs" />
+    <Compile Include="SharpColumnIndent.cs" />
+    <Compile Include="ColumnIndenter\Indenter.cs" />
+    <Compile Include="SharpColumnIndentPackage.cs" />
+    <Compile Include="Languages\CSharp\CSharpToken.cs" />
+    <Compile Include="Languages\CSharp\CSharpLanguage.cs" />
+    <Compile Include="Languages\CSharp\CSharpTokenComparator.cs" />
+    <Compile Include="Languages\ILanguage.cs" />
     <Compile Include="LCS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SyntaxColumnizer.cs" />
-    <Compile Include="SyntaxTokenColumnManager.cs" />
-    <Compile Include="SyntaxTokenColumn.cs" />
-    <Compile Include="SyntaxTokenComparer.cs" />
+    <Compile Include="ColumnIndenter\TokenColumnizer.cs" />
+    <Compile Include="ColumnIndenter\TokenRow.cs" />
+    <Compile Include="ColumnIndenter\TokenColumn.cs" />
+    <Compile Include="ColumnIndenter\TokenComparer.cs" />
+    <Compile Include="Languages\IToken.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="Key.snk" />
     <None Include="packages.config" />
-    <VSCTCompile Include="CSharpColumnIndentPackage.vsct">
+    <VSCTCompile Include="SharpColumnIndentPackage.vsct">
       <ResourceName>Menus.ctmenu</ResourceName>
     </VSCTCompile>
     <Content Include="Packages\Microsoft.CodeAnalysis.2.8.0.nupkg">

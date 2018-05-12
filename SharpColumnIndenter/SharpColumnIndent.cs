@@ -5,13 +5,15 @@ using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
 using EnvDTE;
 using EnvDTE80;
+using SharpColumnIndenter.Languages.CSharp;
+using SharpColumnIndenter.ColumnIndenter;
 
-namespace CSharpColumnIndenter
+namespace SharpColumnIndenter
 {
     /// <summary>
     /// Command handler
     /// </summary>
-    internal sealed class CSharpColumnIndent
+    internal sealed class SharpColumnIndent
     {
         /// <summary>
         /// Command ID.
@@ -29,11 +31,11 @@ namespace CSharpColumnIndenter
         private readonly Package package;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CSharpColumnIndent"/> class.
+        /// Initializes a new instance of the <see cref="SharpColumnIndent"/> class.
         /// Adds our command handlers for menu (commands must exist in the command table file)
         /// </summary>
         /// <param name="package">Owner package, not null.</param>
-        private CSharpColumnIndent(Package package)
+        private SharpColumnIndent(Package package)
         {
             if (package == null)
             {
@@ -54,7 +56,7 @@ namespace CSharpColumnIndenter
         /// <summary>
         /// Gets the instance of the command.
         /// </summary>
-        public static CSharpColumnIndent Instance
+        public static SharpColumnIndent Instance
         {
             get;
             private set;
@@ -77,7 +79,7 @@ namespace CSharpColumnIndenter
         /// <param name="package">Owner package, not null.</param>
         public static void Initialize(Package package)
         {
-            Instance = new CSharpColumnIndent(package);
+            Instance = new SharpColumnIndent(package);
         }
 
         /// <summary>
@@ -89,7 +91,7 @@ namespace CSharpColumnIndenter
         /// <param name="e">Event args.</param>
         private void MenuItemCallback(object sender, EventArgs e)
         {            
-            var columnIndenter = new CSharpColumnIndenter();
+            var columnIndenter = new Indenter(new CSharpLanguage());
             DTE dte = (DTE)ServiceProvider.GetService(typeof(DTE));
             if (dte.ActiveDocument is null)
             {

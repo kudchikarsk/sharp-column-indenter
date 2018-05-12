@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
   <Metadata>
-    <Identity Id="CSharpColumnIndenter.14b4194b-7ff2-4ce2-93ac-fcb2d282a918" Version="1.0" Language="en-US" Publisher="Shadman Kudchikar" />
-    <DisplayName>CSharpColumnIndenter</DisplayName>
+    <Identity Id="SharpColumnIndenter.14b4194b-7ff2-4ce2-93ac-fcb2d282a918" Version="1.0" Language="en-US" Publisher="Shadman Kudchikar" />
+    <DisplayName>SharpColumnIndenter</DisplayName>
     <Description xml:space="preserve">Empty VSIX Project.</Description>
   </Metadata>
   <Installation>

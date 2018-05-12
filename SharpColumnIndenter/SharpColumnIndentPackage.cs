@@ -10,7 +10,7 @@ using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
 using Microsoft.Win32;
 
-namespace CSharpColumnIndenter
+namespace SharpColumnIndenter
 {
     /// <summary>
     /// This is the class that implements the package exposed by this assembly.
@@ -32,9 +32,9 @@ namespace CSharpColumnIndenter
     [PackageRegistration(UseManagedResourcesOnly = true)]
     [InstalledProductRegistration("#110", "#112", "1.0", IconResourceID = 400)] // Info on this package for Help/About
     [ProvideMenuResource("Menus.ctmenu", 1)]
-    [Guid(CSharpColumnIndentPackage.PackageGuidString)]
+    [Guid(SharpColumnIndentPackage.PackageGuidString)]
     [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "pkgdef, VS and vsixmanifest are valid VS terms")]
-    public sealed class CSharpColumnIndentPackage : Package
+    public sealed class SharpColumnIndentPackage : Package
     {
         /// <summary>
         /// CSharpColumnIndentPackage GUID string.
@@ -42,9 +42,9 @@ namespace CSharpColumnIndenter
         public const string PackageGuidString = "c623e3f2-f10d-4e1f-994a-4fcf8c3e00fe";
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CSharpColumnIndent"/> class.
+        /// Initializes a new instance of the <see cref="SharpColumnIndent"/> class.
         /// </summary>
-        public CSharpColumnIndentPackage()
+        public SharpColumnIndentPackage()
         {
             // Inside this method you can place any initialization code that does not require
             // any Visual Studio service because at this point the package object is created but
@@ -60,7 +60,7 @@ namespace CSharpColumnIndenter
         /// </summary>
         protected override void Initialize()
         {
-            CSharpColumnIndent.Initialize(this);
+            SharpColumnIndent.Initialize(this);
             base.Initialize();
         }
 

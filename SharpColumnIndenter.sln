@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2015
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpColumnIndenter", "CSharpColumnIndenter\CSharpColumnIndenter.csproj", "{EE28EC7B-2FB8-4886-BC55-5B69F5FA5EA6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpColumnIndenter", "SharpColumnIndenter\SharpColumnIndenter.csproj", "{EE28EC7B-2FB8-4886-BC55-5B69F5FA5EA6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

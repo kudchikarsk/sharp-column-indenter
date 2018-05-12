@@ -2,32 +2,33 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
+using SharpColumnIndenter.Languages;
 using Microsoft.CodeAnalysis;
 
-namespace CSharpColumnIndenter
+namespace SharpColumnIndenter.ColumnIndenter
 {
-    internal class SyntaxColumnizer
+    internal class TokenColumnizer
     {
         private string _actualText;
-        private SyntaxToken[][] _tokenByLine;
-        private SyntaxToken[] _commonTokens;
-        private SyntaxTokenColumnManager[] _syntaxTokenColumnsByLine;
-        private IEqualityComparer<SyntaxToken> _comparator;
+        private IToken[][] _tokensByLine;
+        private IToken[] _commonTokens;
+        private TokenRow[] _tokenRows;
+        private IEqualityComparer<IToken> _comparator;
 
         private int [] _columnIndexByLine;
 
 
-        public SyntaxColumnizer(SyntaxToken[][] tokenByLine, SyntaxToken[] commonTokens, string actualText, IEqualityComparer<SyntaxToken> comparator)
+        public TokenColumnizer(IToken[][] tokenByLine, IToken[] commonTokens, string actualText, IEqualityComparer<IToken> comparator)
         {
-            _tokenByLine = tokenByLine;
+            _tokensByLine = tokenByLine;
             _commonTokens = commonTokens;
             _actualText = actualText;
             _comparator = comparator;
-            _syntaxTokenColumnsByLine = new SyntaxTokenColumnManager[_tokenByLine.Count()];
-            for (int i = 0; i < _syntaxTokenColumnsByLine.Count(); i++)
-                _syntaxTokenColumnsByLine[i] = new SyntaxTokenColumnManager();
+            _tokenRows = new TokenRow[_tokensByLine.Count()];
+            for (int i = 0; i < _tokenRows.Count(); i++)
+                _tokenRows[i] = new TokenRow();
 
-            _columnIndexByLine = new int[_tokenByLine.Count()];
+            _columnIndexByLine = new int[_tokensByLine.Count()];
             for (int i = 0; i < _columnIndexByLine.Count(); i++)
                 _columnIndexByLine[i] = -1;
         }
@@ -44,17 +45,17 @@ namespace CSharpColumnIndenter
                 AddColumn();
             }
 
-            CopyTokensUptoCommontToken(new SyntaxToken());
+            CopyTokensUptoCommontToken(new BaseToken(""));
         }
 
         private void CopyCurrentTokens()
         {
-            for (int i = 0; i < _tokenByLine.Count(); i++)
+            for (int i = 0; i < _tokensByLine.Count(); i++)
             {
                 var token = GetCurrentToken(i);
                 if (token != null)
                 {
-                    _syntaxTokenColumnsByLine[i].AppendToLastColumn((SyntaxToken)token);
+                    _tokenRows[i].AppendToLastColumn(token);
                 }
                 
             }
@@ -62,20 +63,20 @@ namespace CSharpColumnIndenter
 
         private void AddColumn()
         {
-            for (int i = 0; i < _tokenByLine.Count(); i++)
+            for (int i = 0; i < _tokensByLine.Count(); i++)
             {
-                _syntaxTokenColumnsByLine[i].AddColumn();
+                _tokenRows[i].AddColumn();
             }
         }
 
-        private void CopyTokensUptoCommontToken(SyntaxToken commonToken)
+        private void CopyTokensUptoCommontToken(IToken commonToken)
         {
-            for (int lineIndex = 0; lineIndex < _tokenByLine.Count(); lineIndex++)
+            for (int lineIndex = 0; lineIndex < _tokensByLine.Count(); lineIndex++)
             {
                 var token = GetNextColumnToken(lineIndex);
-                while (token != null && ( string.IsNullOrEmpty(commonToken.Text) || !_comparator.Equals(token.Value,commonToken)))
+                while (token != null && ( string.IsNullOrEmpty(commonToken.Text) || !_comparator.Equals(token,commonToken)))
                 {
-                    _syntaxTokenColumnsByLine[lineIndex].AppendToLastColumn((SyntaxToken)token);
+                    _tokenRows[lineIndex].AppendToLastColumn(token);
                     token = GetNextColumnToken(lineIndex);
                 }
             }
@@ -83,13 +84,13 @@ namespace CSharpColumnIndenter
 
         public override string ToString()
         {
-            var lineContent = new string[_tokenByLine.Count()];
+            var lineContent = new string[_tokensByLine.Count()];
 
-            for (int i = 0; i < _syntaxTokenColumnsByLine.First().Columns.Count(); i++)
+            for (int i = 0; i < _tokenRows.First().Columns.Count(); i++)
             {                
-                var linesColumnText = _syntaxTokenColumnsByLine.Select(l => string.Join(" ", l.GetColumn(i).Tokens.Select(t => t.Text))).ToArray();
+                var linesColumnText = _tokenRows.Select(l => string.Join(" ", l.GetColumn(i).Tokens.Select(t => t.Text))).ToArray();
                 var maxLength = linesColumnText.Select(t=>t.Length).Max();
-                for (int j = 0; j < _tokenByLine.Count(); j++)
+                for (int j = 0; j < _tokensByLine.Count(); j++)
                 {
                     lineContent[j] += Pad(linesColumnText[j], maxLength);
                 }
@@ -117,17 +118,17 @@ namespace CSharpColumnIndenter
             return text + string.Join("", Enumerable.Repeat(" ", maxLength + 1 - text.Length));
         }
 
-        private SyntaxToken? GetNextColumnToken(int lineIndex)
+        private IToken GetNextColumnToken(int lineIndex)
         {
             _columnIndexByLine[lineIndex]++;
             return GetCurrentToken(lineIndex);
         }
 
-        private SyntaxToken? GetCurrentToken(int lineIndex)
+        private IToken GetCurrentToken(int lineIndex)
         {
             try
             {
-                return _tokenByLine[lineIndex][_columnIndexByLine[lineIndex]];
+                return _tokensByLine[lineIndex][_columnIndexByLine[lineIndex]];
             }
             catch (IndexOutOfRangeException)
             {
