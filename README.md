@@ -31,11 +31,62 @@ First example
 
 Take a look at this code:
 
+      //natural code with no code alignment and you can see that
+      //readability of the code is not that good 
+      var people1 = new List<Person>()
+      {
+          new Person { Name = "Benita", Location = "Bareilly India", Age = 25 },
+          new Person { Name = "Deedee Almon Fonsec", Location = "Bari Italy", Age = 32 } ,
+          new Person { Name = "Chase Hussain", Location = "Barika Algeria", Age = 45 } ,
+          new Person { Name = "Cordia", Location = "Barinas Venezuela", Age = 26 } ,
+          new Person { Name = "Malvina Neff", Location = "Barisal Bangladesh", Age = 36 } ,
+          new Person { Name = "Erika ", Location = "Barnaul Russia", Age = 56 } ,
+          new Person { Name = "Lisabeth Terr", Location = "Barquisimeto Venezuela", Age = 67 } ,
+          new Person { Name = "Farrah ", Location = "Barra Mansa Brazil", Age = 57 } ,
+          new Person { Name = "Domonique Biv", Location = "Barrackpur India", Age = 57 } ,
+          new Person { Name = "Jonah", Location = "Barrancabermeja Colombia", Age = 34 }
+      };
+      
 The idea that I’m talking about is to use something like this below,
+
+      //same above code with column indention
+      var people2 = new List<Person>()
+      {
+          new Person { Name = "Benita"              , Location = "Bareilly India"           , Age = 25 } , 
+          new Person { Name = "Deedee Almon Fonsec" , Location = "Bari Italy"               , Age = 32 } , 
+          new Person { Name = "Chase Hussain"       , Location = "Barika Algeria"           , Age = 45 } , 
+          new Person { Name = "Cordia"              , Location = "Barinas Venezuela"        , Age = 26 } , 
+          new Person { Name = "Malvina Neff"        , Location = "Barisal Bangladesh"       , Age = 36 } , 
+          new Person { Name = "Erika "              , Location = "Barnaul Russia"           , Age = 56 } , 
+          new Person { Name = "Lisabeth Terr"       , Location = "Barquisimeto Venezuela"   , Age = 67 } , 
+          new Person { Name = "Farrah "             , Location = "Barra Mansa Brazil"       , Age = 57 } , 
+          new Person { Name = "Domonique Biv"       , Location = "Barrackpur India"         , Age = 57 } , 
+          new Person { Name = "Jonah"               , Location = "Barrancabermeja Colombia" , Age = 34 }   
+      };
 
 The Sharp Column Indenter extension allows you to align by more than just the equals. As you start to see the benefits of alignment, you see that there is so much more to align with:
 
 Compare these:
+
+      var benita = new Person() { Name = "Benita" };
+      var deedeeAlmon = new Person() { Name = "Deedee Almon Fonsec" };
+      var chaseHussain = new Person() { Name = "Chase Hussain" };
+      var cordia = new Person() { Name = "Cordia" };
+
+      benita.Age = 35;
+      deedeeAlmon.Age = 12;
+      chaseHussain.Age = 24;
+      cordia.Age = 22;
+      
+      var benita       = new Person ( ) { Name = "Benita"              } ; 
+      var deedeeAlmon  = new Person ( ) { Name = "Deedee Almon Fonsec" } ; 
+      var chaseHussain = new Person ( ) { Name = "Chase Hussain"       } ; 
+      var cordia       = new Person ( ) { Name = "Cordia"              } ; 
+
+      benita       . Age = 35 ; 
+      deedeeAlmon  . Age = 12 ; 
+      chaseHussain . Age = 24 ; 
+      cordia       . Age = 22 ; 
 
 By aligning by the dot we can clearly see that we are setting the same property on each variable, and the thing that changes is the variable name.
 
