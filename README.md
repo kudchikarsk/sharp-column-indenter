@@ -15,7 +15,7 @@ Tthe most important aspect of programming is the readability of the source code 
 
 Here indention is something where Sharp Column Indenter can help you with.
 
-## What Is Column Indention/ Code Alignment?
+## What Is Column Indention / Code Alignment?
 
 In mathematics you always keep your equals lined up directly underneath the one above. It keeps it clean and lets you know you're working on the same problem, for example:
             
