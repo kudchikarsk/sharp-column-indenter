@@ -1,9 +1,7 @@
 ## Sharp Column Indenter
-![](https://kudchikarsk.github.io/images/logo.jpg "")
-
 A Smart source code indenter that indent the code into columns. Also known as "code alignment".
 
-[Download](https://marketplace.visualstudio.com/items?itemName=kudchikarsk.sharp-column-indenter)
+### [Download](https://marketplace.visualstudio.com/items?itemName=kudchikarsk.sharp-column-indenter)
 
 ## Contents
 
