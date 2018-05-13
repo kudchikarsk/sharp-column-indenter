@@ -19,7 +19,10 @@ Here indention is something where Sharp Column Indenter can help you with.
 ## What Is Column Indention/ Code Alignment?
 
 In mathematics you always keep your equals lined up directly underneath the one above. It keeps it clean and lets you know you're working on the same problem, for example:
-
+            
+            y   = 2x
+            y/2 = x
+            
 some code here Programming is slightly different. We often have a lot of assignments underneath each other, and while they are not strictly the same as maths, there is a close relationship. As such, aligning the equals allows us to quickly spot the relationship.
 
 Further, it makes your code so much more readable. Without alignment, the code is like opening a CSV file in Notepad. But, if you open the CSV file in Excel, it becomes so much easier to read since the columns have meaning.
