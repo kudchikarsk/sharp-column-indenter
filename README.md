@@ -102,11 +102,11 @@ This might seem a bit crazy now, but once you start aligning things, it's addict
 
 Step 1: Select text you want to align.
 
-![](https://kudchikarsk.github.io/images/01&#32select&#32text.jpg "")
+![](https://kudchikarsk.github.io/images/01-select-text.jpg "")
 
 Step 2: Select Apply Column Indention command in Edit menu
 
-![](https://kudchikarsk.github.io/images/02 apply&#32column&#32indention.jpg "")
+![](https://kudchikarsk.github.io/images/02-apply-column-indention.jpg "")
 
 Thats it!
 
