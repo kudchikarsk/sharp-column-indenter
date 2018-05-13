@@ -78,6 +78,8 @@ Compare these:
       chaseHussain.Age = 24;
       cordia.Age = 22;
       
+same code with column indention,
+      
       var benita       = new Person ( ) { Name = "Benita"              } ; 
       var deedeeAlmon  = new Person ( ) { Name = "Deedee Almon Fonsec" } ; 
       var chaseHussain = new Person ( ) { Name = "Chase Hussain"       } ; 
