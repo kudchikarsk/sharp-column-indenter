@@ -1,7 +1,6 @@
-## Sharp Column Indenter
+## Sharp Column Indenter - Visual Studio Extension
 A Smart source code indenter that indent the code into columns. Also known as "code alignment".
-
-### [Download](https://marketplace.visualstudio.com/items?itemName=kudchikarsk.sharp-column-indenter)
+#### [Download](https://marketplace.visualstudio.com/items?itemName=kudchikarsk.sharp-column-indenter)
 
 ## Contents
 
