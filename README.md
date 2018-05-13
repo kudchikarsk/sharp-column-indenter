@@ -1,20 +1,12 @@
-* * *
-
-![](/images/logo.jpg)
-
 ## Sharp Column Indenter
+
+![](https://kudchikarsk.github.io/images/logo.jpg)
 
 A Smart source code indenter that indent the code into columns. Also known as "code alignment".
 
-[Download](https://marketplace.visualstudio.com/items?itemName=kudchikarsk.sharp-column-indenter)</div>
-
-</div>
-
-* * *
+[Download](https://marketplace.visualstudio.com/items?itemName=kudchikarsk.sharp-column-indenter)
 
 ## Contents
-
-* * *
 
 *   Introduction
 *   Examples Of Improvements In Code Readability Using Code Alignment
@@ -22,15 +14,11 @@ A Smart source code indenter that indent the code into columns. Also known as "c
 
 ## Introduction
 
-* * *
-
 Tthe most important aspect of programming is the readability of the source code that you write or maintain. This involves many things, from the syntax of the programming language, to the variable names, comments, and indentation.
 
 Here indention is something where Sharp Column Indenter can help you with.
 
 ## What Is Column Indention/ Code Alignment?
-
-* * *
 
 In mathematics you always keep your equals lined up directly underneath the one above. It keeps it clean and lets you know you're working on the same problem, for example:
 
@@ -40,7 +28,6 @@ Further, it makes your code so much more readable. Without alignment, the code i
 
 ## Examples Of Improvements In Code Readability Using Code Alignment
 
-* * *
 
 First example
 
@@ -58,15 +45,13 @@ This might seem a bit crazy now, but once you start aligning things, it's addict
 
 ## Steps To Use Sharp Column Indenter
 
-* * *
-
 Step 1: Select text you want to align.
 
-![](/images/01 select text.jpg)
+![](https://kudchikarsk.github.io/images/01 select text.jpg)
 
 Step 2: Select Apply Column Indention command in Edit menu
 
-![](/images/02 apply column indention.jpg)
+![](https://kudchikarsk.github.io/images/02 apply column indention.jpg)
 
 Thats it!
 
