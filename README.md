@@ -6,6 +6,7 @@ A Smart source code indenter that indent the code into columns. Also known as "c
 ## Contents
 
 *   Introduction
+*	What Is Column Indention / Code Alignment?
 *   Examples Of Improvements In Code Readability Using Code Alignment
 *   Steps To Use Sharp Column Indenter
 
