@@ -5,12 +5,12 @@ A Smart source code indenter that indent the code into columns. Also known as "c
 
 ## Contents
 
-*   Introduction
+*   Why Sharp Column Indenter?
 *	What Is Column Indention / Code Alignment?
 *   Examples Of Improvements In Code Readability Using Code Alignment
 *   Steps To Use Sharp Column Indenter
 
-## Introduction
+## Why Sharp Column Indenter?
 
 Tthe most important aspect of programming is the readability of the source code that you write or maintain. This involves many things, from the syntax of the programming language, to the variable names, comments, and indentation.
 
