@@ -12,7 +12,7 @@ A Smart source code indenter that indent the code into columns. Also known as "c
 
 ## Why Sharp Column Indenter?
 
-Tthe most important aspect of programming is the readability of the source code that you write or maintain. This involves many things, from the syntax of the programming language, to the variable names, comments, and indentation.
+The most important aspect of programming is the readability of the source code that you write or maintain. This involves many things, from the syntax of the programming language, to the variable names, comments, and indentation.
 
 Here indention is something where Sharp Column Indenter can help you with.
 
