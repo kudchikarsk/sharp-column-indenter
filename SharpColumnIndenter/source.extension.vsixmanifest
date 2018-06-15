@@ -4,7 +4,7 @@
         <Identity Id="SharpColumnIndenter.14b4194b-7ff2-4ce2-93ac-fcb2d282a918" Version="1.0" Language="en-US" Publisher="Shadman Kudchikar" />
         <DisplayName>Sharp Column Indenter</DisplayName>
         <Description xml:space="preserve">A Smart source code indenter that indent the code into columns. Also known as "code alignment".</Description>
-        <MoreInfo>https://kudchikarsk.github.io/sharp-column-indenter.html</MoreInfo>
+        <MoreInfo>https://kudchikarsk.github.io/sharp-column-indenter</MoreInfo>
     </Metadata>
     <Installation>
         <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[15.0]" />
