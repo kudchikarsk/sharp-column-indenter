@@ -106,9 +106,3 @@ Step 1: Select text you want to align.
 Step 2: Select Apply Column Indention command in Edit menu
 
 ![](https://kudchikarsk.github.io/images/02-apply-column-indention.jpg "")
-
-Thats it!
-
-I turned Sharp Column Indenter project into a [Github repo](https://github.com/kudchikarsk/sharp-column-indenter) so you can, you know, contribute to it by making pull requests.
-
-If you have constructive criticism, or know of other tools that do the same thing, please leave a comment.
